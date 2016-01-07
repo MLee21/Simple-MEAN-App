@@ -14,9 +14,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
 
-app.listen(8080);
-console.log('App listening on port 8080');
-
 var Todo = mongoose.model('Todo', {
   text : String
 });
@@ -60,3 +57,10 @@ app.delete('/api/todos/:todo_id', function(req, res){
     });
   });
 });
+
+app.get('*', function(req, res) {
+  res.sendfile('./public/index.html');
+});
+
+app.listen(8080);
+console.log('App listening on port 8080');
