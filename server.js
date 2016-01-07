@@ -16,3 +16,7 @@ app.use(methodOverride());
 
 app.listen(8080);
 console.log('App listening on port 8080');
+
+var Todo = mongoose.model('Todo', {
+  text : String
+});
